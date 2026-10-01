@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Demo Bank</title>
+  <title>Demo Savings Dashboard</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f2f4f7;
-      color: #222;
+      font-family: Arial, sans-serif;
+      background: #f3f6fa;
+      color: #172033;
     }
 
     header {
       background: #123c69;
       color: white;
       padding: 20px;
-      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
     }
 
     .demo {
@@ -26,36 +34,82 @@
       padding: 12px;
       text-align: center;
       font-weight: bold;
+      border-bottom: 1px solid #ffe69c;
     }
 
     .container {
-      max-width: 500px;
-      margin: 30px auto;
+      max-width: 700px;
+      margin: auto;
       padding: 20px;
     }
 
     .card {
       background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .label {
+      color: #667085;
+      font-size: 14px;
+      margin-bottom: 8px;
     }
 
     .balance {
       font-size: 32px;
       font-weight: bold;
-      margin: 10px 0 25px;
+      color: #123c69;
+      word-break: break-word;
+    }
+
+    .account-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 5px;
     }
 
     button {
       width: 100%;
+      border: 0;
+      border-radius: 10px;
       padding: 14px;
       margin-top: 10px;
-      border: none;
-      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .share {
       background: #123c69;
       color: white;
-      font-size: 16px;
+    }
+
+    .copy {
+      background: #e8eef5;
+      color: #123c69;
+    }
+
+    .notice {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    .transaction {
+      border-top: 1px solid #eee;
+      padding: 12px 0;
+    }
+
+    .view-only {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #26733b;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -63,29 +117,111 @@
 <body>
 
   <header>
-    <h1>My Demo Bank</h1>
+    <h1>Demo Savings Dashboard</h1>
   </header>
 
   <div class="demo">
-    DEMO ONLY — NOT A REAL BANK
+    DEMONSTRATION ONLY — NO REAL MONEY OR BANK ACCOUNT
   </div>
 
   <div class="container">
+
     <div class="card">
-      <h2>Welcome, Demo User</h2>
+      <div class="label">Account name</div>
+      <div class="account-name" id="accountName">
+        My Demo Savings
+      </div>
 
-      <p>Demo Balance</p>
-      <div class="balance">₦50,000.00</div>
+      <div class="label" style="margin-top:20px;">
+        Demonstration balance
+      </div>
 
-      <button onclick="alert('Demo transaction only')">
-        Send Money
-      </button>
+      <div class="balance">
+        $8,300,045.00
+      </div>
 
-      <button onclick="alert('Demo transaction only')">
-        Receive Money
-      </button>
+      <div style="margin-top:15px;">
+        <span class="view-only">VIEW ONLY</span>
+      </div>
     </div>
+
+    <div class="card">
+      <h2>Shared View</h2>
+
+      <p class="notice">
+        Anyone using a shared demonstration link can view this
+        simulated account information. The page does not provide
+        withdrawals, transfers, deposits, or access to real money.
+      </p>
+
+      <button class="share" onclick="createLink()">
+        Create View-Only Link
+      </button>
+
+      <button class="copy" onclick="copyLink()">
+        Copy Current Link
+      </button>
+
+      <p id="linkResult" class="notice"></p>
+    </div>
+
+    <div class="card">
+      <h2>Account Information</h2>
+
+      <div class="transaction">
+        <strong>Account type</strong><br>
+        Demonstration Savings
+      </div>
+
+      <div class="transaction">
+        <strong>Access</strong><br>
+        View only
+      </div>
+
+      <div class="transaction">
+        <strong>Withdrawals</strong><br>
+        Not available
+      </div>
+
+      <div class="transaction">
+        <strong>Transfers</strong><br>
+        Not available
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Important</h2>
+      <p class="notice">
+        This website is a fictional demonstration interface for
+        learning web development. The displayed balance is not
+        evidence of funds held at a bank and cannot be withdrawn
+        or transferred.
+      </p>
+    </div>
+
   </div>
+
+  <script>
+    function createLink() {
+      const link = window.location.href;
+
+      document.getElementById("linkResult").innerHTML =
+        "View-only demonstration link:<br><br>" +
+        "<strong>" + link + "</strong>";
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href)
+        .then(function() {
+          document.getElementById("linkResult").innerText =
+            "Demo link copied.";
+        })
+        .catch(function() {
+          document.getElementById("linkResult").innerText =
+            "Copy failed. You can copy the address from your browser.";
+        });
+    }
+  </script>
 
 </body>
 </html>
