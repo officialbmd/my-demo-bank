@@ -1,227 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo Savings Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fictional Demo Bank</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f6fa;
-      color: #172033;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  color: #172033;
+}
 
-    header {
-      background: #123c69;
-      color: white;
-      padding: 20px;
-    }
+.demo-warning {
+  background: #fff3cd;
+  color: #664d03;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 13px;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 22px;
-    }
+.header {
+  background: #092957;
+  color: white;
+  padding: 20px;
+}
 
-    .demo {
-      background: #fff3cd;
-      color: #664d03;
-      padding: 12px;
-      text-align: center;
-      font-weight: bold;
-      border-bottom: 1px solid #ffe69c;
-    }
+.header h1 {
+  margin: 0;
+  font-size: 22px;
+}
 
-    .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-    }
+.header p {
+  margin: 6px 0 0;
+  opacity: .8;
+}
 
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 22px;
-      margin-bottom: 18px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
 
-    .label {
-      color: #667085;
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
+.balance-card {
+  background: #092957;
+  color: white;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 18px rgba(0,0,0,.12);
+}
 
-    .balance {
-      font-size: 32px;
-      font-weight: bold;
-      color: #123c69;
-      word-break: break-word;
-    }
+.balance-label {
+  opacity: .8;
+  font-size: 14px;
+}
 
-    .account-name {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
+.balance {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 12px 0;
+}
 
-    button {
-      width: 100%;
-      border: 0;
-      border-radius: 10px;
-      padding: 14px;
-      margin-top: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.demo-text {
+  font-size: 12px;
+  opacity: .75;
+}
 
-    .share {
-      background: #123c69;
-      color: white;
-    }
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
-    .copy {
-      background: #e8eef5;
-      color: #123c69;
-    }
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  cursor: pointer;
+  background: white;
+  color: #092957;
+  font-weight: bold;
+}
 
-    .notice {
-      font-size: 14px;
-      line-height: 1.5;
-      color: #555;
-    }
+.section-title {
+  margin-top: 25px;
+}
 
-    .transaction {
-      border-top: 1px solid #eee;
-      padding: 12px 0;
-    }
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
 
-    .view-only {
-      display: inline-block;
-      background: #e8f5e9;
-      color: #26733b;
-      padding: 6px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-  </style>
+.service {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.service-icon {
+  font-size: 25px;
+}
+
+.transactions {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.transaction:last-child {
+  border-bottom: 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 30px 10px;
+  color: #777;
+  font-size: 12px;
+}
+
+@media (min-width: 600px) {
+  .services {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Demo Savings Dashboard</h1>
-  </header>
+<div class="demo-warning">
+  ⚠️ FICTIONAL DEMO — NOT A REAL BANK ACCOUNT — NO REAL MONEY
+</div>
 
-  <div class="demo">
-    DEMONSTRATION ONLY — NO REAL MONEY OR BANK ACCOUNT
-  </div>
-
-  <div class="container">
-
-    <div class="card">
-      <div class="label">Account name</div>
-      <div class="account-name" id="accountName">
-        My Demo Savings
-      </div>
-
-      <div class="label" style="margin-top:20px;">
-        Demonstration balance
-      </div>
-
-      <div class="balance">
-        $8,300,045.00
-      </div>
-
-      <div style="margin-top:15px;">
-        <span class="view-only">VIEW ONLY</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Shared View</h2>
-
-      <p class="notice">
-        Anyone using a shared demonstration link can view this
-        simulated account information. The page does not provide
-        withdrawals, transfers, deposits, or access to real money.
-      </p>
-
-      <button class="share" onclick="createLink()">
-        Create View-Only Link
-      </button>
-
-      <button class="copy" onclick="copyLink()">
-        Copy Current Link
-      </button>
-
-      <p id="linkResult" class="notice"></p>
-    </div>
-
-    <div class="card">
-      <h2>Account Information</h2>
-
-      <div class="transaction">
-        <strong>Account type</strong><br>
-        Demonstration Savings
-      </div>
-
-      <div class="transaction">
-        <strong>Access</strong><br>
-        View only
-      </div>
-
-      <div class="transaction">
-        <strong>Withdrawals</strong><br>
-        Not available
-      </div>
-
-      <div class="transaction">
-        <strong>Transfers</strong><br>
-        Not available
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Important</h2>
-      <p class="notice">
-        This website is a fictional demonstration interface for
-        learning web development. The displayed balance is not
-        evidence of funds held at a bank and cannot be withdrawn
-        or transferred.
-      </p>
-    </div>
-
-  </div>
-
-  <script>
-    function createLink() {
-      const link = window.location.href;
-
-      document.getElementById("linkResult").innerHTML =
-        "View-only demonstration link:<br><br>" +
-        "<strong>" + link + "</strong>";
-    }
-
-    function copyLink() {
-      navigator.clipboard.writeText(window.location.href)
-        .then(function() {
-          document.getElementById("linkResult").innerText =
-            "Demo link copied.";
-        })
-        .catch(function() {
-          document.getElementById("linkResult").innerText =
-            "Copy failed. You can copy the address from your browser.";
-        });
-    }
-  </script>
-
-</body>
-</html>
+<div class="header">
+  <h1>Fictional Demo
