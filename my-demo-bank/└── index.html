@@ -88,4 +88,460 @@ body {
   padding-bottom: 90px;
 }
 
-/* QUICK SERVICES
+/* QUICK SERVICES */
+.services {
+  background: white;
+  padding: 22px 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px 8px;
+}
+
+.service {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.icon {
+  width: 58px;
+  height: 58px;
+  margin: auto;
+  border-radius: 50%;
+  background: #edf0f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+/* CARDS */
+.card {
+  background: white;
+  margin: 12px 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 7px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+
+.card-title {
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #16486e;
+  border-bottom: 1px solid #eee;
+}
+
+.transaction {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.transaction-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #e8f2df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+}
+
+.transaction-info {
+  flex: 1;
+}
+
+.transaction-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.transaction-date {
+  font-size: 12px;
+  color: #777;
+  margin-top: 5px;
+}
+
+.amount {
+  text-align: right;
+  font-weight: 800;
+  color: #187a38;
+}
+
+.amount small {
+  display: block;
+  color: #777;
+  font-weight: normal;
+  margin-top: 4px;
+}
+
+.view-all {
+  padding: 16px;
+  border-top: 1px solid #eee;
+  color: #17628f;
+  font-weight: 700;
+}
+
+/* SCHEDULE */
+.schedule {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 19px;
+  color: #16486e;
+  font-weight: 800;
+}
+
+/* SPENDING */
+.spending {
+  padding: 20px;
+}
+
+.spending-row {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.donut {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background:
+    conic-gradient(#d5d9dc 0deg 360deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-inner {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.spending-text {
+  flex: 1;
+}
+
+.spending-text h3 {
+  margin: 0 0 8px;
+}
+
+.spending-text p {
+  margin: 0;
+  color: #777;
+  line-height: 1.5;
+}
+
+/* ACCOUNT */
+.account {
+  padding: 18px;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.detail:last-child {
+  border-bottom: none;
+}
+
+.detail span:last-child {
+  font-weight: 700;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 600px;
+  margin: auto;
+  height: 72px;
+  background: #123f67;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  color: white;
+  z-index: 90;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.nav-icon {
+  font-size: 22px;
+}
+
+.nav-item.active {
+  background: rgba(255,255,255,.08);
+}
+
+/* BUTTONS */
+button {
+  border: none;
+  background: #123f67;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+@media (min-width: 601px) {
+  .container,
+  .bottom-nav {
+    max-width: 600px;
+  }
+
+  body {
+    background: #e9ecef;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="demo-banner">
+  DEMO • NOT A REAL BANK ACCOUNT • FICTIONAL WEBSITE
+</div>
+
+<div class="container">
+
+  <!-- BALANCE HEADER -->
+  <header class="header">
+
+    <div class="header-top">
+      <div class="back">‹ Back</div>
+      <div class="bank-name">NORTHSTAR DEMO BANK</div>
+      <div class="menu">⋮</div>
+    </div>
+
+    <div class="balance-label">Available Demo Balance</div>
+
+    <div class="balance">$8,300,045.00</div>
+
+    <div class="balance-details">
+      View Balance Details
+    </div>
+
+  </header>
+
+  <!-- SERVICES -->
+  <section class="services">
+
+    <div class="service">
+      <div class="icon">🏦</div>
+      My Account
+    </div>
+
+    <div class="service">
+      <div class="icon">💳</div>
+      My Card
+    </div>
+
+    <div class="service">
+      <div class="icon">💵</div>
+      Move Money
+    </div>
+
+    <div class="service">
+      <div class="icon">💸</div>
+      Transfer
+    </div>
+
+    <div class="service">
+      <div class="icon">🧾</div>
+      Pay Bills
+    </div>
+
+    <div class="service">
+      <div class="icon">📥</div>
+      Deposit
+    </div>
+
+  </section>
+
+  <!-- SCHEDULED TRANSACTIONS -->
+  <div class="card">
+    <div class="schedule">
+      📋
+      <span>VIEW SCHEDULED TRANSACTIONS</span>
+    </div>
+  </div>
+
+  <!-- TRANSACTIONS -->
+  <div class="card">
+
+    <div class="card-title">
+      TRANSACTION ACTIVITY
+    </div>
+
+    <div class="transaction">
+
+      <div class="transaction-icon">💰</div>
+
+      <div class="transaction-info">
+        <div class="transaction-name">
+          DEMO DEPOSIT
+        </div>
+        <div class="transaction-date">
+          October 1, 2026
+        </div>
+      </div>
+
+      <div class="amount">
+        +$25,000.00
+        <small>Demo balance</small>
+      </div>
+
+    </div>
+
+    <div class="transaction">
+
+      <div class="transaction-icon">↔️</div>
+
+      <div class="transaction-info">
+        <div class="transaction-name">
+          DEMO TRANSFER
+        </div>
+        <div class="transaction-date">
+          September 28, 2026
+        </div>
+      </div>
+
+      <div class="amount">
+        +$12,500.00
+        <small>Demo transaction</small>
+      </div>
+
+    </div>
+
+    <div class="view-all">
+      View All Demo Transactions →
+    </div>
+
+  </div>
+
+  <!-- SPENDING -->
+  <div class="card">
+
+    <div class="card-title">
+      MONTHLY SPENDING SNAPSHOT
+    </div>
+
+    <div class="spending">
+
+      <div class="spending-row">
+
+        <div class="donut">
+          <div class="donut-inner">$0</div>
+        </div>
+
+        <div class="spending-text">
+          <h3>No spending data</h3>
+          <p>
+            This fictional demo does not process
+            real payments or transactions.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ACCOUNT DETAILS -->
+  <div class="card">
+
+    <div class="card-title">
+      DEMO ACCOUNT DETAILS
+    </div>
+
+    <div class="account">
+
+      <div class="detail">
+        <span>Account type</span>
+        <span>Demo Checking</span>
+      </div>
+
+      <div class="detail">
+        <span>Account number</span>
+        <span>•••• 4821</span>
+      </div>
+
+      <div class="detail">
+        <span>Routing number</span>
+        <span>•••••••••</span>
+      </div>
+
+      <div class="detail">
+        <span>Status</span>
+        <span>DEMO ONLY</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- DEMO NOTICE -->
+  <div class="card">
+
+    <div class="card-title">
+      ABOUT THIS DEMO
+    </div>
+
+    <div style="padding:20px; line-height:1.6; color:#555;">
+      This website is a fictional banking interface created
+      for demonstration and web-development purposes.
+      It is not connected to a bank, payment network,
+      financial institution, or real account.
+    </div>
+
+  </div>
+
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-nav">
+
+  <div class="nav-item active">
+    <div class="nav-icon">⌂</div>
+    Home
+  </div>
+
+  <div class="nav-item">
+    <div class="nav-icon">⌕</div>
+    Search
+  </div>
+
+  <div class="nav-item">
+    <div class="nav-icon">💬</div>
+    Chat
+  </div>
+
+</nav>
+
+</body>
+  </html>
