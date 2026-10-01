@@ -6,548 +6,86 @@
 <title>Northstar Demo Bank</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+* {
+  box-sizing: border-box;
 }
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f4f6f9;
-  color:#172033;
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f5f7;
+  color: #17202a;
 }
 
-.demo{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:#fff0b8;
-  color:#634f00;
-  text-align:center;
-  padding:10px;
-  font-size:13px;
-  font-weight:800;
-  border-bottom:1px solid #e1c84c;
+/* DEMO LABEL */
+.demo-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff3cd;
+  color: #664d03;
+  text-align: center;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  border-bottom: 1px solid #e6d18a;
 }
 
-header{
-  background:#082d63;
-  color:white;
+/* HEADER */
+.header {
+  background: #123f67;
+  color: white;
+  padding: 18px 20px 30px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,.18);
 }
 
-.top{
-  max-width:1100px;
-  margin:auto;
-  padding:18px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
 }
 
-.brand{
-  font-size:22px;
-  font-weight:800;
+.back {
+  font-size: 15px;
+  opacity: .9;
 }
 
-.brand span{
-  color:#76b6ff;
+.bank-name {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: .5px;
 }
 
-.nav{
-  display:flex;
-  gap:10px;
+.menu {
+  font-size: 22px;
 }
 
-.nav button{
-  background:transparent;
-  border:1px solid rgba(255,255,255,.35);
-  color:white;
-  padding:9px 12px;
-  border-radius:8px;
+.balance-label {
+  font-size: 16px;
+  text-decoration: underline;
+  opacity: .95;
 }
 
-main{
-  max-width:1100px;
-  margin:25px auto;
-  padding:0 16px;
+.balance {
+  font-size: 38px;
+  font-weight: 800;
+  margin: 8px 0;
+  letter-spacing: -1px;
 }
 
-.welcome{
-  margin-bottom:20px;
+.balance-details {
+  font-size: 15px;
+  margin-top: 12px;
+  opacity: .95;
 }
 
-.welcome h1{
-  font-size:27px;
-  margin-bottom:6px;
+/* CONTENT */
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding-bottom: 90px;
 }
 
-.muted{
-  color:#687386;
-}
-
-.balance{
-  background:linear-gradient(135deg,#082d63,#1261a8);
-  color:white;
-  border-radius:20px;
-  padding:26px;
-  box-shadow:0 8px 25px rgba(0,0,0,.12);
-  margin-bottom:20px;
-}
-
-.account{
-  opacity:.8;
-  font-size:14px;
-  margin-bottom:15px;
-}
-
-.amount{
-  font-size:39px;
-  font-weight:800;
-  letter-spacing:-1px;
-}
-
-.available{
-  margin-top:8px;
-  opacity:.85;
-  font-size:14px;
-}
-
-.buttons{
-  display:flex;
-  gap:10px;
-  margin-top:23px;
-  flex-wrap:wrap;
-}
-
-.buttons button{
-  padding:12px 18px;
-  border-radius:9px;
-  border:0;
-  font-weight:bold;
-}
-
-.primary{
-  background:white;
-  color:#082d63;
-}
-
-.dark{
-  background:rgba(255,255,255,.15);
-  color:white;
-  border:1px solid rgba(255,255,255,.3)!important;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  margin-bottom:25px;
-}
-
-.card{
-  background:white;
-  padding:19px;
-  border-radius:14px;
-  box-shadow:0 3px 15px rgba(0,0,0,.05);
-}
-
-.label{
-  color:#687386;
-  font-size:13px;
-  margin-bottom:8px;
-}
-
-.value{
-  font-size:20px;
-  font-weight:750;
-}
-
-.title{
-  font-size:20px;
-  margin:24px 0 13px;
-}
-
-.actions{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-
-.action{
-  background:white;
-  border:0;
-  border-radius:13px;
-  padding:20px 10px;
-  font-weight:bold;
-  box-shadow:0 3px 14px rgba(0,0,0,.05);
-}
-
-.action:hover{
-  background:#edf5ff;
-}
-
-.details{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-
-.detail{
-  background:white;
-  padding:18px;
-  border-radius:13px;
-}
-
-.detail small{
-  display:block;
-  color:#687386;
-  margin-bottom:6px;
-}
-
-.transactions{
-  background:white;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 3px 15px rgba(0,0,0,.05);
-}
-
-.transaction{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:17px;
-  border-bottom:1px solid #edf0f4;
-}
-
-.transaction:last-child{
-  border-bottom:0;
-}
-
-.left{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.icon{
-  width:43px;
-  height:43px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#eaf2ff;
-  font-size:19px;
-}
-
-.name{
-  font-weight:bold;
-  font-size:14px;
-}
-
-.date{
-  color:#8b95a5;
-  font-size:12px;
-  margin-top:4px;
-}
-
-.green{
-  color:#14804a;
-  font-weight:bold;
-}
-
-.red{
-  color:#c0392b;
-  font-weight:bold;
-}
-
-footer{
-  text-align:center;
-  padding:35px 15px;
-  color:#687386;
-  font-size:12px;
-}
-
-footer strong{
-  color:#8b6900;
-  display:block;
-  margin-bottom:7px;
-}
-
-@media(max-width:700px){
-
-  .top{
-    padding:15px;
-  }
-
-  .brand{
-    font-size:18px;
-  }
-
-  .nav button{
-    padding:7px 9px;
-    font-size:11px;
-  }
-
-  main{
-    margin-top:20px;
-  }
-
-  .amount{
-    font-size:30px;
-  }
-
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .actions{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .details{
-    grid-template-columns:1fr;
-  }
-
-  .transaction{
-    padding:14px 12px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="demo">
-  ⚠️ DEMO / NOT A REAL BANK ACCOUNT — FICTIONAL DEMONSTRATION
-</div>
-
-<header>
-  <div class="top">
-
-    <div class="brand">
-      Northstar <span>Demo Bank</span>
-    </div>
-
-    <div class="nav">
-      <button onclick="demo('Notifications are disabled in this demo.')">
-        🔔
-      </button>
-
-      <button onclick="demo('This is a fictional profile.')">
-        Profile
-      </button>
-    </div>
-
-  </div>
-</header>
-
-<main>
-
-  <div class="welcome">
-    <h1>Good morning, Daniel</h1>
-    <p class="muted">Your fictional online banking dashboard</p>
-  </div>
-
-  <!-- BALANCE -->
-
-  <section class="balance">
-
-    <div class="account">
-      DEMO CHECKING •••• 4821
-    </div>
-
-    <div class="amount">
-      $8,300,045.00
-    </div>
-
-    <div class="available">
-      Available demo balance
-    </div>
-
-    <div class="buttons">
-
-      <button class="primary"
-        onclick="demo('Transfers are disabled because this is a fictional demo.')">
-        + Add Money
-      </button>
-
-      <button class="dark"
-        onclick="demo('This demo has no real transaction history.')">
-        View History
-      </button>
-
-    </div>
-
-  </section>
-
-  <!-- SUMMARY -->
-
-  <div class="grid">
-
-    <div class="card">
-      <div class="label">Available Balance</div>
-      <div class="value">$8,300,045.00</div>
-    </div>
-
-    <div class="card">
-      <div class="label">Pending</div>
-      <div class="value">$2,450.00</div>
-    </div>
-
-    <div class="card">
-      <div class="label">Monthly Spending</div>
-      <div class="value">$12,840.22</div>
-    </div>
-
-    <div class="card">
-      <div class="label">Demo Rewards</div>
-      <div class="value">4,280 pts</div>
-    </div>
-
-  </div>
-
-  <!-- QUICK ACTIONS -->
-
-  <h2 class="title">Quick Actions</h2>
-
-  <div class="actions">
-
-    <button class="action"
-      onclick="demo('Transfers are unavailable in this fictional website.')">
-      💸<br><br>Transfer
-    </button>
-
-    <button class="action"
-      onclick="demo('Deposits are unavailable in this fictional website.')">
-      💰<br><br>Deposit
-    </button>
-
-    <button class="action"
-      onclick="demo('This is a fictional card.')">
-      💳<br><br>Cards
-    </button>
-
-    <button class="action"
-      onclick="demo('Statements are fictional in this demo.')">
-      📄<br><br>Statements
-    </button>
-
-  </div>
-
-  <!-- ACCOUNT DETAILS -->
-
-  <h2 class="title">Account Details</h2>
-
-  <div class="details">
-
-    <div class="detail">
-      <small>Account holder</small>
-      <strong>Daniel Omachi</strong>
-    </div>
-
-    <div class="detail">
-      <small>Account type</small>
-      <strong>Premium Checking — DEMO</strong>
-    </div>
-
-    <div class="detail">
-      <small>Account number</small>
-      <strong>•••• •••• 4821</strong>
-    </div>
-
-    <div class="detail">
-      <small>Routing number</small>
-      <strong>DEMO-ROUTING-000</strong>
-    </div>
-
-  </div>
-
-  <!-- TRANSACTIONS -->
-
-  <h2 class="title">Recent Demo Transactions</h2>
-
-  <div class="transactions">
-
-    <div class="transaction">
-
-      <div class="left">
-        <div class="icon">💵</div>
-
-        <div>
-          <div class="name">Demo Deposit</div>
-          <div class="date">October 1, 2026</div>
-        </div>
-      </div>
-
-      <div class="green">+$25,000.00</div>
-
-    </div>
-
-    <div class="transaction">
-
-      <div class="left">
-        <div class="icon">🏠</div>
-
-        <div>
-          <div class="name">Demo Property Payment</div>
-          <div class="date">September 28, 2026</div>
-        </div>
-      </div>
-
-      <div class="red">-$4,250.00</div>
-
-    </div>
-
-    <div class="transaction">
-
-      <div class="left">
-        <div class="icon">💼</div>
-
-        <div>
-          <div class="name">Demo Business Income</div>
-          <div class="date">September 25, 2026</div>
-        </div>
-      </div>
-
-      <div class="green">+$18,500.00</div>
-
-    </div>
-
-    <div class="transaction">
-
-      <div class="left">
-        <div class="icon">🛒</div>
-
-        <div>
-          <div class="name">Demo Purchase</div>
-          <div class="date">September 22, 2026</div>
-        </div>
-      </div>
-
-      <div class="red">-$735.50</div>
-
-    </div>
-
-  </div>
-
-</main>
-
-<footer>
-
-  <strong>DEMO / NOT A REAL BANK ACCOUNT</strong>
-
-  Northstar Demo Bank is a fictional interface created for
-  demonstration and web-development purposes. No real banking,
-  payments, transfers, deposits, or withdrawals are available.
-
-</footer>
-
-<script>
-function demo(message){
-  alert(message);
-}
-</script>
-
-</body>
-  </html>
+/* QUICK SERVICES
